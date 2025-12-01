@@ -1,0 +1,21 @@
+{
+    "logo": "logo.png",
+    "main": "index.html",
+    "preload": "preload/services.js",
+    "development": {
+        "main": "http://127.0.0.1:5173/"
+    },
+    "features": [
+        {
+            "code": "step",
+            "cmds": [
+                {
+                    "type": "over",
+                    "label": "CTF解题助手-极速模式"
+                },
+                "ctf"
+            ],
+            "mainPush": true
+        }
+    ]
+}
