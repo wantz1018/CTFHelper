@@ -148,77 +148,74 @@ function App() {
                     }
                 });
             } else if (typeof pText === "object") {
-                const matchTypes = matcher(pText.command); // 现在返回的是数组
-                matchTypes.forEach(type => {
-                    switch (type) {
-                        case "base16decode":
-                            result.push({
-                                text: "base16解码->" + base16Decode(pText.args[0]),
-                                title: "base16解码"
-                            })
-                            break;
-                        case "base16encode":
-                            result.push({
-                                text: "base16编码->" + base16Encode(pText.args[0]),
-                                title: "base16编码"
-                            })
-                            break;
-                        case "base32decode":
-                            result.push({
-                                text: "base32解码->" + base32Decode(pText.args[0]),
-                                title: "base32解码"
-                            })
-                            break;
-                        case "base32encode":
-                            result.push({
-                                text: "base32编码->" + base32Encode(pText.args[0]),
-                                title: "base32编码"
-                            })
-                            break;
-                        case "base64decode":
-                            result.push({
-                                text: "base64解码->" + base64Decode(pText.args[0]),
-                                title: "base64解码"
-                            });
-                            break;
-                        case "base64encode":
-                            result.push({
-                                text: "base64编码->" + base64Encode(action.payload.replace(/^base64encode\s/i, "").replace(/^base64\s/i, "").replace(/^b64e\s/i, "")),
-                                title: "base64编码"
-                            });
-                            break;
-                        case "base85encode":
-                            result.push({
-                                text: "base85编码->" + base85Encode(action.payload.replace(/^base85encode\s/i, "").replace(/^base85\s/i, "").replace(/^b85e\s/i, "")),
-                                title: "base85编码"
-                            })
-                            break;
-                        case "base85decode":
-                            result.push({
-                                text: "base85编码->" + base85Decode(action.payload.replace(/^base85encode\s/i, "").replace(/^base85\s/i, "").replace(/^b85e\s/i, "")),
-                                title: "base85编码"
-                            })
-                            break;
-                        case "caesar":
-                            result.push({
-                                text: "ceasar密码->" + ceasarCipher(pText.args.slice(1).join(" "), parseInt(pText.args[0])),
-                                title: "ceasar密码"
-                            })
-                            break;
-                        case "md5":
-                            result.push({
-                                text: "md5计算->" + md5(action.payload.replace(/^md5\s/i, "")),
-                                title: "md5计算"
-                            });
-                            break;
-                        case "rot13":
-                            result.push({
-                                text: "rot13编码->" + rot13Decode(action.payload.replace(/^rot13\s/i, "")),
-                                title: "rot13编码"
-                            })
-                            break;
-                    }
-                });
+                switch (pText.command) {
+                    case "base16decode":
+                        result.push({
+                            text: "base16解码->" + base16Decode(pText.args[0]),
+                            title: "base16解码"
+                        })
+                        break;
+                    case "base16encode":
+                        result.push({
+                            text: "base16编码->" + base16Encode(pText.args[0]),
+                            title: "base16编码"
+                        })
+                        break;
+                    case "base32decode":
+                        result.push({
+                            text: "base32解码->" + base32Decode(pText.args[0]),
+                            title: "base32解码"
+                        })
+                        break;
+                    case "base32encode":
+                        result.push({
+                            text: "base32编码->" + base32Encode(pText.args[0]),
+                            title: "base32编码"
+                        })
+                        break;
+                    case "base64decode":
+                        result.push({
+                            text: "base64解码->" + base64Decode(pText.args[0]),
+                            title: "base64解码"
+                        });
+                        break;
+                    case "base64encode":
+                        result.push({
+                            text: "base64编码->" + base64Encode(action.payload.replace(/^base64encode\s/i, "").replace(/^base64\s/i, "").replace(/^b64e\s/i, "")),
+                            title: "base64编码"
+                        });
+                        break;
+                    case "base85encode":
+                        result.push({
+                            text: "base85编码->" + base85Encode(action.payload.replace(/^base85encode\s/i, "").replace(/^base85\s/i, "").replace(/^b85e\s/i, "")),
+                            title: "base85编码"
+                        })
+                        break;
+                    case "base85decode":
+                        result.push({
+                            text: "base85编码->" + base85Decode(action.payload.replace(/^base85encode\s/i, "").replace(/^base85\s/i, "").replace(/^b85e\s/i, "")),
+                            title: "base85编码"
+                        })
+                        break;
+                    case "caesar":
+                        result.push({
+                            text: "ceasar密码->" + ceasarCipher(pText.args.slice(1).join(" "), parseInt(pText.args[0])),
+                            title: "ceasar密码"
+                        })
+                        break;
+                    case "md5":
+                        result.push({
+                            text: "md5计算->" + md5(action.payload.replace(/^md5\s/i, "")),
+                            title: "md5计算"
+                        });
+                        break;
+                    case "rot13":
+                        result.push({
+                            text: "rot13编码->" + rot13Decode(action.payload.replace(/^rot13\s/i, "")),
+                            title: "rot13编码"
+                        })
+                        break;
+                }
             }
             return result;
         }, (selectCallback) => {
