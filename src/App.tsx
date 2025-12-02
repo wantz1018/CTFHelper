@@ -15,6 +15,7 @@ import { quotedPrintableDecode } from './utils/crypto/quotedPrintable';
 import htmlEntityDecode from './utils/crypto/htmlentity';
 import { jwtDecode } from './utils/crypto/jwt';
 import baconDecode from './utils/crypto/bacon';
+import ceasarCipher from './utils/crypto/caesar';
 
 interface ActionProps {
     code: string;
@@ -33,11 +34,11 @@ function processText(text: string) {
     const trimmedText = text.trim();
     
     // 检查是否是命令格式（以特定前缀开头）
-    const commandPrefixes = ['base64', 'b64e', 'b64d', 'md5', 'rot13'];
+    const commandPrefixes = ['base64', 'b64e', 'b64d', 'md5', 'rot13', "caesar"];
     const isCommand = commandPrefixes.some(prefix => 
         trimmedText.toLowerCase().startsWith(prefix)
     );
-    
+
     if (isCommand) {
         const parts = trimmedText.split(/\s+/);
         const command = parts[0];
@@ -196,6 +197,12 @@ function App() {
                             result.push({
                                 text: "base85编码->" + base85Decode(action.payload.replace(/^base85encode\s/i, "").replace(/^base85\s/i, "").replace(/^b85e\s/i, "")),
                                 title: "base85编码"
+                            })
+                            break;
+                        case "caesar":
+                            result.push({
+                                text: "ceasar密码->" + ceasarCipher(pText.args.slice(1).join(" "), parseInt(pText.args[0])),
+                                title: "ceasar密码"
                             })
                             break;
                         case "md5":

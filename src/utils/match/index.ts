@@ -17,6 +17,7 @@ const matchRules: MatchRule[] = [
     { pattern: /^base85|base85encode|b85e/i, type: "base85encode" },
     { pattern: /^base64decode|b64d/i, type: "base64decode" },
     { pattern: /^base64|base64encode|b64e/i, type: "base64encode" },
+    { pattern: /^caesar\s*-?\d+\s*.+/i, type: "caesar" },
     { pattern: /&[a-zA-Z]+;|&#\d+;|&#x[0-9a-fA-F]+;/g, type: "htmlentity" },
     { pattern: /^rot13/i, type: "rot13" },
     { pattern: /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/, type: "jwt" },
