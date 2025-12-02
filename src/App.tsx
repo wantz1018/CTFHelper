@@ -68,79 +68,79 @@ function App() {
                     switch (type) {
                         case "ascii":
                             result.push({
-                                text: String.fromCharCode(parseInt(pText, 10)),
+                                text: "ascii解码->" + String.fromCharCode(parseInt(pText, 10)),
                                 title: "ascii解码"
                             });
                             break;
                         case "bacon":
                             result.push({
-                                text: baconDecode(pText),
+                                text: "bacon解码->" + baconDecode(pText),
                                 title: "bacon解码"
                             })
                             break;
                         case "base64":
                             result.push({
-                                text: base64Decode(pText),
+                                text: "base64解码->" + base64Decode(pText),
                                 title: "base64解码"
                             });
                             break;
                         case "binary":
                             result.push({
-                                text: binaryToString(pText),
+                                text: "二进制解码->" + binaryToString(pText),
                                 title: "二进制解码"
                             });
                             break;
                         case "brainfuck":
                             result.push({
-                                text: brainfuckDecode(pText),
+                                text: "brainfuck解码->" + brainfuckDecode(pText),
                                 title: "brainfuck解码"
                             })
                             break;
                         case "hex":
                             result.push({
-                                text: hexDecode(pText),
+                                text: "hex解码->" + hexDecode(pText),
                                 title: "hex解码"
                             });
                             break;
                         case "htmlentity":
                             result.push({
-                                text: htmlEntityDecode(pText),
+                                text: "htmlentity解码->" + htmlEntityDecode(pText),
                                 title: "htmlentity解码"
                             })
                             break;
                         case "morse":
                             result.push({
-                                text: morseToText(oText),
+                                text: "morse解码->" + morseToText(oText),
                                 title: "morse解码"
                             });
                             break;
                         case "jwt":
                             result.push({
-                                text: JSON.stringify(jwtDecode(pText), null, 4),
+                                text: "jwt解码->" + JSON.stringify(jwtDecode(pText), null, 4),
                                 title: "jwt解码"
                             })
                             break;
                         case "quotedPrintable":
                             result.push({
-                                text: quotedPrintableDecode(oText),
+                                text: "quotedPrintable解码->" + quotedPrintableDecode(oText),
                                 title: "quotedPrintable解码"
                             })
                             break;
                         case "unicode":
                             result.push({
-                                text: JSON.parse(`"${pText}"`).replace(/\\u/g, "\\u"),
+                                text: "unicode解码->" + JSON.parse(`"${pText}"`).replace(/\\u/g, "\\u"),
                                 title: "unicode解码"
                             });
                             break;
                         case "url":
                             result.push({
-                                text: decodeURIComponent(pText),
+                                text: "url解码->" + decodeURIComponent(pText),
                                 title: "url解码"
                             });
                             break;
                         case "timestamp":
                             result.push({
-                                text: new Date(parseInt(pText) * 1000).toLocaleString(),
+                                text: "时间戳转换->" + new Date(parseInt(pText) * 1000).toLocaleString(),
                                 title: "时间戳转换"
                             });
                             break;
@@ -152,61 +152,61 @@ function App() {
                     switch (type) {
                         case "base16decode":
                             result.push({
-                                text: base16Decode(pText.args[0]),
+                                text: "base16解码->" + base16Decode(pText.args[0]),
                                 title: "base16解码"
                             })
                             break;
                         case "base16encode":
                             result.push({
-                                text: base16Encode(pText.args[0]),
+                                text: "base16编码->" + base16Encode(pText.args[0]),
                                 title: "base16编码"
                             })
                             break;
                         case "base32decode":
                             result.push({
-                                text: base32Decode(pText.args[0]),
+                                text: "base32解码->" + base32Decode(pText.args[0]),
                                 title: "base32解码"
                             })
                             break;
                         case "base32encode":
                             result.push({
-                                text: base32Encode(pText.args[0]),
+                                text: "base32编码->" + base32Encode(pText.args[0]),
                                 title: "base32编码"
                             })
                             break;
                         case "base64decode":
                             result.push({
-                                text: base64Decode(pText.args[0]),
+                                text: "base64解码->" + base64Decode(pText.args[0]),
                                 title: "base64解码"
                             });
                             break;
                         case "base64encode":
                             result.push({
-                                text: base64Encode(action.payload.replace(/^base64encode\s/i, "").replace(/^base64\s/i, "").replace(/^b64e\s/i, "")),
+                                text: "base64编码->" + base64Encode(action.payload.replace(/^base64encode\s/i, "").replace(/^base64\s/i, "").replace(/^b64e\s/i, "")),
                                 title: "base64编码"
                             });
                             break;
                         case "base85encode":
                             result.push({
-                                text: base85Encode(action.payload.replace(/^base85encode\s/i, "").replace(/^base85\s/i, "").replace(/^b85e\s/i, "")),
+                                text: "base85编码->" + base85Encode(action.payload.replace(/^base85encode\s/i, "").replace(/^base85\s/i, "").replace(/^b85e\s/i, "")),
                                 title: "base85编码"
                             })
                             break;
                         case "base85decode":
                             result.push({
-                                text: base85Decode(action.payload.replace(/^base85encode\s/i, "").replace(/^base85\s/i, "").replace(/^b85e\s/i, "")),
+                                text: "base85编码->" + base85Decode(action.payload.replace(/^base85encode\s/i, "").replace(/^base85\s/i, "").replace(/^b85e\s/i, "")),
                                 title: "base85编码"
                             })
                             break;
                         case "md5":
                             result.push({
-                                text: md5(action.payload.replace(/^md5\s/i, "")),
+                                text: "md5计算->" + md5(action.payload.replace(/^md5\s/i, "")),
                                 title: "md5计算"
                             });
                             break;
                         case "rot13":
                             result.push({
-                                text: rot13Decode(action.payload.replace(/^rot13\s/i, "")),
+                                text: "rot13编码->" + rot13Decode(action.payload.replace(/^rot13\s/i, "")),
                                 title: "rot13编码"
                             })
                             break;
@@ -215,7 +215,8 @@ function App() {
             }
             return result;
         }, (selectCallback) => {
-            window.utools.hideMainWindowPasteText(selectCallback.option.text);
+            const text = selectCallback.option.text;
+            window.utools.hideMainWindowPasteText(text.split("->")[1]);
         });
 
     })
